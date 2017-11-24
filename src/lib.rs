@@ -13,8 +13,6 @@
 //!   you'll have to provide the `panic_fmt` lang item yourself. Documentation
 //!   [here][1]
 //!
-//! [1]: https://doc.rust-lang.org/unstable-book/language-features/lang-items.html
-//!
 //! - A minimal `start` lang item to support the standard `fn main()`
 //!   interface. (The processor goes to sleep (`loop { asm!("wfi") }`) after
 //!   returning from `main`)
@@ -38,8 +36,6 @@
 //! Creating a new bare metal project. (I recommend you use the
 //! [`cortex-m-quickstart`][qs] template as it takes of all the boilerplate
 //! shown here)
-//!
-//! [qs]: https://docs.rs/cortex-m-quickstart/0.2.0/cortex_m_quickstart/
 //!
 //! ``` text
 //! $ cargo new --bin app && cd $_
@@ -200,8 +196,6 @@
 //! [here][2], but at a minimum you'll want to create two memory regions: one
 //! for Flash memory and another for RAM.
 //!
-//! [2]: https://sourceware.org/binutils/docs/ld/MEMORY.html
-//!
 //! The program instructions (the `.text` section) will be stored in the memory
 //! region named FLASH, and the program `static` variables (the sections `.bss`
 //! and `.data`) will be allocated in the memory region named RAM.
@@ -255,8 +249,8 @@
 //!
 //! This symbol is located in RAM right after the `.bss` and `.data` sections.
 //! You can use the address of this symbol as the start address of a heap
-//! region. This symbol is 4 byte aligned so that address will be a multiple of
-//! 4.
+//! region. This symbol is 4 byte aligned so that address will be a multiple
+//! of 4.
 //!
 //! #### Example
 //!
@@ -277,6 +271,10 @@
 //!     }
 //! }
 //! ```
+//!
+//! [1]: https://doc.rust-lang.org/unstable-book/language-features/lang-items.html
+//! [qs]: https://docs.rs/cortex-m-quickstart/0.2.0/cortex_m_quickstart/
+//! [2]: https://sourceware.org/binutils/docs/ld/MEMORY.html
 
 #![cfg_attr(any(target_arch = "arm", feature = "abort-on-panic"),
             feature(core_intrinsics))]
